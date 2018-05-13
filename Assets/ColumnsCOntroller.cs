@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ColumnsCOntroller : MonoBehaviour
 {
-
     private Rigidbody2D rigidbody2D;
 
     private void Awake()
@@ -17,5 +14,13 @@ public class ColumnsCOntroller : MonoBehaviour
         rigidbody2D.velocity = new Vector2(-2, 0);
     }
 
+    private void OnEnable()
+    {
+        rigidbody2D.velocity = new Vector2(-2, 0);
+    }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Score.score++;
+    }
 }
