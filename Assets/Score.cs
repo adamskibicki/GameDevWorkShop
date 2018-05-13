@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public static int score;
+    public static int Value;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private Text scoreText;
+
+    public void Update()
     {
-        GetComponentInChildren<Text>().text = score.ToString();
+        scoreText.text = "Score: "+ Value;
     }
 }

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class ColumnsCOntroller : MonoBehaviour
+public class ColumnsController : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
 
     private void Awake()
     {
@@ -21,6 +21,6 @@ public class ColumnsCOntroller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Score.score++;
+        Score.Value++;
     }
 }

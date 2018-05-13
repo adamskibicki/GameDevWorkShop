@@ -1,6 +1,4 @@
-﻿//https://pastebin.com/fvn8DfKt
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -8,9 +6,9 @@ public class ColumnsSpawner : MonoBehaviour
 {
     public GameObject Columns;
 
-    private List<GameObject> ColumnsPool = new List<GameObject>();
+    private readonly List<GameObject> columnsPool = new List<GameObject>();
 
-    private List<GameObject> ActiveColumns = new List<GameObject>();
+    private readonly List<GameObject> activeColumns = new List<GameObject>();
 
     private void Awake()
     {
@@ -20,13 +18,13 @@ public class ColumnsSpawner : MonoBehaviour
 
     private void SpawnColumn()
     {
-        if (ColumnsPool.Count > 0)
+        if (columnsPool.Count > 0)
         {
-            var columns = ColumnsPool.Last();
+            var columns = columnsPool.Last();
 
-            ColumnsPool.Remove(columns);
+            columnsPool.Remove(columns);
 
-            ActiveColumns.Add(columns);
+            activeColumns.Add(columns);
 
             columns.SetActive(true);
 
@@ -34,23 +32,23 @@ public class ColumnsSpawner : MonoBehaviour
         }
         else
         {
-            ActiveColumns.Add(Instantiate(Columns, new Vector3(15, Random.Range(-3f, 3f), 0), Quaternion.identity));
+            activeColumns.Add(Instantiate(Columns, new Vector3(15, Random.Range(-3f, 3f), 0), Quaternion.identity));
         }
     }
 
     private void CheckColumnsOutOfScreen()
     {
-        for (int i = 0; i < ActiveColumns.Count; i++)
+        for (int i = 0; i < activeColumns.Count; i++)
         {
-            if (ActiveColumns[i].transform.position.x < -15)
+            if (activeColumns[i].transform.position.x < -15)
             {
-                var columns = ActiveColumns[i];
-                ActiveColumns.Remove(ActiveColumns[i]);
+                var columns = activeColumns[i];
+                activeColumns.Remove(activeColumns[i]);
                 i--;
 
                 columns.SetActive(false);
 
-                ColumnsPool.Add(columns);
+                columnsPool.Add(columns);
             }
         }
     }
