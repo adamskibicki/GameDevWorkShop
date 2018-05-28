@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 1189359741}
   - component: {fileID: 1189359745}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: SkyBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 1682704113}
   - component: {fileID: 1682704112}
   m_Layer: 0
-  m_Name: Quad (1)
+  m_Name: GrassBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
