@@ -23,6 +23,11 @@ public static class ScoreSaveLoad
 
     private static ScoresContainer scoresContainer = new ScoresContainer();
 
+    public static List<Score> GetSaves()
+    {
+        return scoresContainer.Scores;
+    }
+
     public static void AddScore(Score score)
     {
         scoresContainer.Scores.Add(score);
