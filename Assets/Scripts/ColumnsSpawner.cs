@@ -52,4 +52,13 @@ public class ColumnsSpawner : MonoBehaviour
             }
         }
     }
+
+    public void StopAllColumns()
+    {
+        CancelInvoke();
+        foreach (var activeColumn in activeColumns)
+        {
+            activeColumn.GetComponent<ColumnsController>().enabled = false;
+        }
+    }
 }

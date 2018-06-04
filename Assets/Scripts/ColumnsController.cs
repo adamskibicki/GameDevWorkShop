@@ -19,6 +19,11 @@ public class ColumnsController : MonoBehaviour
         rigidbody2D.velocity = new Vector2(-2, 0);
     }
 
+    private void OnDisable()
+    {
+        rigidbody2D.velocity = Vector2.zero;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Score.Value++;

@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject HighscoresMenu;
+
     private void Awake()
     {
         ScoreSaveLoad.Load();
@@ -18,5 +19,17 @@ public class MenuController : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void GoToHighscores()
+    {
+        MainMenu.SetActive(false);
+        HighscoresMenu.SetActive(true);
+    }
+
+    public void GoToMenu()
+    {
+        HighscoresMenu.SetActive(false);
+        MainMenu.SetActive(true);
     }
 }

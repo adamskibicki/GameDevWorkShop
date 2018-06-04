@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BirdController : MonoBehaviour
 {
@@ -22,20 +21,9 @@ public class BirdController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D()
     {
         isDead = true;
-        Invoke("EndGame", 1f);
-    }
-
-    private void EndGame()
-    {
-        ScoreSaveLoad.AddScore(new ScoreSaveLoad.Score
-        {
-            Name = "testname",
-            Value = Score.Value
-        });
-        ScoreSaveLoad.Save();
-        SceneManager.LoadScene("menu");
+        GameController.Instance.PlayerFail();
     }
 }

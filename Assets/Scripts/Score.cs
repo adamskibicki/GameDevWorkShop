@@ -12,4 +12,9 @@ public class Score : MonoBehaviour
     {
         scoreText.text = "Score: "+ Value;
     }
+
+    private void OnDestroy()
+    {
+        Value = 0;
+    }
 }
